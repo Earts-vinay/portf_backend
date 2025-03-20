@@ -4,7 +4,7 @@ const UserSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    role: { type: String, default: 'User' },
+    role: { type: String, default: '' },
     about: { type: String, default: '' },
     phone: { type: String, default: '' },
     email: { type: String, default: '' },
@@ -16,19 +16,18 @@ const UserSchema = new mongoose.Schema({
         startDate: { type: Date, required: true },
         endDate: { type: Date, required: true }
     }],
+    workExp: [{
+        companyName: { type: String, required: true },
+        role: { type: String, required: true },
+        startDate: { type: Date, required: true },
+        endDate: { type: Date, required: true }
+    }],
 
     skills: { type: [String], default: [] },
 
     certificates: [{
         name: { type: String, required: true },
         issuer: { type: String, required: true }
-    }],
-
-    workExp: [{
-        companyName: { type: String, required: true },
-        role: { type: String, required: true },
-        startDate: { type: Date, required: true },
-        endDate: { type: Date, required: true }
     }],
 
 }, { timestamps: true });
